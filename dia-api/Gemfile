@@ -29,8 +29,13 @@ gem 'spring',        group: :development
 # Model Serialization
 gem 'active_model_serializers'
 
+# password
+gem 'bcrypt-ruby', '>=3.1.2', :require => 'bcrypt'
+
+gem 'faker'
+
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
 # gem 'unicorn'
