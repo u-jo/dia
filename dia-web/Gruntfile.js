@@ -8,9 +8,11 @@
 // 'test/spec/**/*.js'
 
 module.exports = function (grunt) {
-  grunt.loadNpmTasks('grunt-connect-proxy');
+  
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
+
+  var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
@@ -18,8 +20,10 @@ module.exports = function (grunt) {
   // Configurable paths for the application
   var appConfig = {
     app: require('./bower.json').appPath || 'app',
-    dist: 'dist'
+    dist: '../public'
   };
+
+  grunt.loadNpmTasks('grunt-connect-proxy');
 
   // Define the configuration for all the tasks
   grunt.initConfig({
@@ -87,12 +91,13 @@ module.exports = function (grunt) {
           middleware: function (connect) {
             return [
               connect.static('.tmp'),
+              connect.static('test'),
               connect().use(
                 '/bower_components',
                 connect.static('./bower_components')
               ),
               connect.static(appConfig.app),
-              connect.static(require('grunt-connect-proxy/lib/utils').proxyRequest)
+              proxySnippet
             ];
           }
         }
@@ -365,7 +370,7 @@ module.exports = function (grunt) {
       }
     }
   });
-
+  
   grunt.registerTask('server', function () {
         grunt.task.run([
             'clean:server',

@@ -12,10 +12,11 @@ angular
   .module('diaWebApp', [
     'ngAnimate',
     'ngCookies',
-    'ngRoute',
     'ngSanitize',
+    'ngRoute',
     'ngTouch',
-    'ui.router'
+    'ui.router',
+    'ngResource'
   ])
   .config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
@@ -25,6 +26,14 @@ angular
         url: '/',
         templateUrl: '/views/main.html',
         controller: 'MainCtrl'
+      })
+      .state('signin', {
+        url: '/signin',
+        templateUrl: '/views/main/signin.html',
+        controller: 'MainSigninCtrl'
       });
-
+  })
+  .run(function ($resource) {
+    var csrfVerify = $resource('/api/csrf-verify.json');
+    csrfVerify.get();
   });

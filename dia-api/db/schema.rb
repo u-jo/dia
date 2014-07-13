@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140710031155) do
+ActiveRecord::Schema.define(version: 20140713042351) do
 
   create_table "api_users", force: true do |t|
     t.string   "first_name"
@@ -20,8 +20,10 @@ ActiveRecord::Schema.define(version: 20140710031155) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "remember_token"
   end
 
   add_index "api_users", ["email"], name: "index_api_users_on_email", unique: true
+  add_index "api_users", ["remember_token"], name: "index_api_users_on_remember_token"
 
 end

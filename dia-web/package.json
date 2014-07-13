@@ -1,7 +1,15 @@
 {
   "name": "diaweb",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "grunt-autoprefixer": "^0.7.6",
+    "grunt-contrib-connect": "^0.8.0",
+    "grunt-contrib-cssmin": "^0.9.0",
+    "grunt-contrib-uglify": "^0.4.0",
+    "jshint-stylish": "^0.2.0",
+    "load-grunt-tasks": "^0.4.0",
+    "time-grunt": "^0.3.2"
+  },
   "devDependencies": {
     "grunt": "^0.4.1",
     "grunt-autoprefixer": "^0.7.3",
@@ -9,7 +17,7 @@
     "grunt-connect-proxy": "^0.1.10",
     "grunt-contrib-clean": "^0.5.0",
     "grunt-contrib-concat": "^0.4.0",
-    "grunt-contrib-connect": "^0.7.1",
+    "grunt-contrib-connect": "*",
     "grunt-contrib-copy": "^0.5.0",
     "grunt-contrib-cssmin": "^0.9.0",
     "grunt-contrib-htmlmin": "^0.3.0",

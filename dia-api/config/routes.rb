@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   namespace :api do
     resources :users
+    resources :sessions, only: [:new, :create, :destroy]
+    get '/csrf-verify' => 'csrf_responder#index'
+    match '/signin',  to: 'sessions#create',         via: 'post'
+    match '/signout', to: 'sessions#destroy',     via: 'delete'
   end
 
   # Example of regular route:
