@@ -1,0 +1,91 @@
+.lightbox-font {
+	font-family: 'Montserrat', sans-serif;
+}
+.lightbox-header {
+	font-size: 24px;
+	color: #393939;
+	border-radius: 4px;
+	height: 65px;
+	padding: 0px !important;
+	background-color: #EDEDED;
+}
+
+#lightbox-title {
+	font-family: 'Montserrat', sans-serif;
+}
+
+.lightbox-icon-holder {
+	display: inline-block;
+	margin-top: 4px;
+	width: 55px;
+}
+
+.lightbox-title {
+	display: inline-block;
+	line-height: 65px;
+}
+
+.lightbox-close-holder {
+	display: inline-block;
+	float: right;
+}
+
+#lightbox-close-button {
+	top: 15px;
+	left: 40px;
+	background: white;
+	padding: 1.5px;
+	border-radius: 5px;
+}
+
+#lightbox-close-button:hover {
+	color: gray ;
+	cursor: pointer;
+}
+
+.lightbox-body {
+
+}
+
+.button-padding {
+	margin-left: 70px;
+	margin-top: 10px;
+}
+
+.form-row-padding {
+	padding: 10px 0;
+}
+
+.login-button {
+	border-radius: 30px;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.dia-input, 
+.pure-form input[type="password"],
+.pure-form input[type="email"] 
+{
+	border-radius: 30px;
+	font-family: 'Montserrat', sans-serif;
+	padding: 0.5em 0.6em;
+	border: 1px solid #ccc;
+	font-weight: normal;
+	line-height: 25px;
+	box-sizing: border-box;
+	display: inline-block;
+	text-align: center !important;
+}
+
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.sign-up-prompt {
+	cursor: pointer;
+}
+
+
+

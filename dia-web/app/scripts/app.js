@@ -16,7 +16,8 @@ angular
     'ngRoute',
     'ngTouch',
     'ui.router',
-    'ngResource'
+    'ngResource',
+    'ui.bootstrap'
   ])
   .config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
@@ -27,10 +28,15 @@ angular
         templateUrl: '/views/main.html',
         controller: 'MainCtrl'
       })
-      .state('signin', {
-        url: '/signin',
-        templateUrl: '/views/main/signin.html',
-        controller: 'MainSigninCtrl'
+      .state('dashboard', {
+        url: '/dashboard/:id',
+        templateUrl: '/views/auth/main.html',
+        controller: 'AuthDashboardCtrl',
+        resolve: {
+          id: function($stateParams) {
+            return $stateParams.id;
+          }
+        }
       });
   })
   .run(function ($resource) {

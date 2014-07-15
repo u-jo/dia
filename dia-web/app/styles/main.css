@@ -1,7 +1,13 @@
 /* Space out content a bit */
 body {
-  padding-top: 20px;
+  padding-top: 0px;
   padding-bottom: 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Override bootstrap's radius */
+.no-radius {
+  border-radius: 0px;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -59,6 +65,21 @@ body {
   margin-top: 28px;
 }
 
+/* login modal */
+.login-dialog .modal-dialog{
+    width: 25%;
+}
+
+.login-dialog .modal-content{
+  min-width: 300px;
+}
+
+.start-now-button {
+  border-radius: 30px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   /* Remove the padding we set earlier */
@@ -77,3 +98,5 @@ body {
     border-bottom: 0;
   }
 }
+
+

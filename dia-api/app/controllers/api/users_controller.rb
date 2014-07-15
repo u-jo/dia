@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-
+	skip_before_filter :authenticate, :only => :create
 	def show
 		@user = Api::User.find(params[:id])
 
