@@ -1,0 +1,45 @@
+.page {
+	border: 1px solid #ccc;
+	
+	height: 100%;
+	font-family: 'Montserrat', sans-serif;
+}
+
+textarea.page_content {
+	padding: 20px;
+	height: 100%;
+	overflow: auto;
+	word-wrap: break-word;
+	border-radius: 0px !important;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 20px;
+}
+
+.pure-form {
+
+}
+
+.page_header{
+	border: 1px solid #ccc;
+	border-bottom: none;
+	padding: 10px 10px 10px 20px;
+	font-size: 20px;
+}
+
+.page-form-label label{
+	text-align: left;
+}
+div[contenteditable=true]:focus { 
+    outline:none;
+    border-color:#9ecaed;
+    box-shadow:0 0 10px #9ecaed;
+}
+
+.page-date span {
+	margin: 0.5em 0 0.2em;
+}
+
+.page-input input{
+	line-height: normal;
+	text-align: left;
+}

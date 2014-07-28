@@ -18,20 +18,19 @@ angular.module('diaWebApp')
     var signedIn = false;
     var currentUser = {
         id: '',
-    	first_name: '',
-    	last_name: '',
     	email: ''
     };
 
     function setToken(token) {
-        $http.defaults.headers.common['Authorization'] = 'Token token=' + token;
+        $http.defaults.headers.common['Authorization'] = 'Token token=\"' + token + '\"';
     }
 
+
     sessionsService.setCurrentUser = function(user) {
-    	currentUser.first_name = user.first_name;
-    	currentUser.last_name = user.last_name;
     	currentUser.email = user.email;
         currentUser.id = user.id;
+        $cookies.remember_token = user.remember_token;
+        $cookies.auth_token = user.auth_token;
     };
 
     sessionsService.getCurrentUser = function() {
@@ -49,8 +48,6 @@ angular.module('diaWebApp')
     sessionsService.signOut = function() {
         sessionsService.setCurrentUser({
             id: '',
-            first_name: '',
-            last_name: '',
             email: ''
         });
         signedIn = false;
@@ -63,17 +60,23 @@ angular.module('diaWebApp')
     	return signInResource.createSession(sessionInfo).$promise.then(function(response) {
     		if (response.success === true) {
     			var user = response.user;
-    			$cookies.remember_token = response.remember_token;
-    			$cookies.auth_token = user.auth_token;
-    			//setToken($cookies.auth_token);
                 sessionsService.setCurrentUser(user);
-    			$state.go('dashboard', { id: user.id });
-    			signedIn = true;
+                setToken($cookies.auth_token);
+                sessionsService.setSignIn(true);
+    			$state.go('home.dashboard', { id: user.id });
+    			
     		} else {
-
+                // response if it has failed
     		}
     		return response;
     	});
+    };
+
+    sessionsService.createSessionFromSignup = function(user) {
+        sessionsService.setCurrentUser(user);
+        setToken($cookies.auth_token);
+        sessionsService.setSignIn(true);
+        $state.go('home.dashboard', { id: user.id });
     };
     return sessionsService;	
   });

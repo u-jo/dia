@@ -1,7 +1,7 @@
 /* Space out content a bit */
 body {
   padding-top: 0px;
-  padding-bottom: 20px;
+  padding-bottom: 0px;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -78,6 +78,7 @@ body {
   border-radius: 30px;
   margin-top: 8px;
   margin-bottom: 8px;
+  background: white;
 }
 
 /* Responsive: Portrait tablets and up */

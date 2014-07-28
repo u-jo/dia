@@ -20,12 +20,10 @@ angular.module('diaWebApp')
     };
 
     userService.createUser = function(user) {
-    	return userResource.save({ user: user }).$promise.then(function() {
-
+    	return userResource.save({ user: user }).$promise.then(function(response) {
+        return response;
     	});
     };
     return userService;
-
-
     
   });

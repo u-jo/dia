@@ -28,15 +28,37 @@ angular
         templateUrl: '/views/main.html',
         controller: 'MainCtrl'
       })
-      .state('dashboard', {
-        url: '/dashboard/:id',
-        templateUrl: '/views/auth/main.html',
-        controller: 'AuthDashboardCtrl',
+      .state('home', {
+        url: '/user/:id',
+        templateUrl: '/views/auth/home.html',
+        controller: 'AuthHomeCtrl',
         resolve: {
           id: function($stateParams) {
             return $stateParams.id;
           }
-        }
+        },
+        abstract: true
+      })
+      .state('home.health', {
+        url: '/health',
+        templateUrl: '/views/auth/health/healthHome.html',
+        controller: 'AuthHealthCtrl'
+      })
+      .state('home.dashboard', {
+        url: '/dashboard',
+        templateUrl: '/views/auth/dashboard/dashboard.html',
+        controller: 'AuthDashboardCtrl'
+      })
+      .state('home.diary', {
+        url: '/diary',
+        templateUrl: '/views/auth/diary/main.html',
+        controller: 'AuthDiaryCtrl',
+        abstract: true
+      })
+      .state('home.diary.create', {
+        url: '/create',
+        templateUrl: '/views/auth/diary/create.html',
+        controller: 'DiaryCreatePageCtrl'
       });
   })
   .run(function ($resource) {

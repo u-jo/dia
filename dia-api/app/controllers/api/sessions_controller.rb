@@ -24,8 +24,7 @@ class Api::SessionsController < ApplicationController
 		else 
 			respond_to do |format|
 				format.json {
-					render	:status => 401,
-							:json => {
+					render	:json => {
 								success: false,
 								info: "Wrong password or email",
 							}

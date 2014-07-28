@@ -2,7 +2,7 @@
 	font-family: 'Montserrat', sans-serif;
 }
 .lightbox-header {
-	font-size: 24px;
+	font-size: 1.8em;
 	color: #393939;
 	border-radius: 4px;
 	height: 65px;
@@ -14,15 +14,15 @@
 	font-family: 'Montserrat', sans-serif;
 }
 
-.lightbox-icon-holder {
-	display: inline-block;
-	margin-top: 4px;
-	width: 55px;
-}
-
 .lightbox-title {
 	display: inline-block;
 	line-height: 65px;
+}
+
+.lightbox-icon-container {
+	display: block;
+	padding-top: 10px;
+	padding-left: 15px;
 }
 
 .lightbox-close-holder {
@@ -32,7 +32,7 @@
 
 #lightbox-close-button {
 	top: 15px;
-	left: 40px;
+	left: 45px;
 	background: white;
 	padding: 1.5px;
 	border-radius: 5px;
@@ -43,9 +43,6 @@
 	cursor: pointer;
 }
 
-.lightbox-body {
-
-}
 
 .button-padding {
 	margin-left: 70px;

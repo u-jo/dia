@@ -10,10 +10,11 @@
 angular.module('diaWebApp')
   .controller('MainCtrl', function ($scope, $http, $log, $state, $modal, userService, sessionsService) {
     if (sessionsService.getSignIn() === true) {
-        $state.go('dashboard', { id: sessionsService.getCurrentUser().id });
+        $state.go('home.dashboard', { id: sessionsService.getCurrentUser().id });
     }
 
     $scope.loginSignUp = function(signUp) {
+        $scope.user = {}; 
         var logInBool = false;
         var signUpBool = false;
         if (signUp === 'login') {
@@ -32,30 +33,23 @@ angular.module('diaWebApp')
                 },
                 signUp: function() {
                     return signUpBool;
+                },
+                userService: function() {
+                    return userService;
+                },
+                log: function() {
+                    return $log;
+                },
+                sessionsService: function() {
+                    return sessionsService;
+                },
+                user: function() {
+                    return $scope.user;
                 }
             }
         });
 
     };
 
-    $scope.getUser = function() { 
-        console.log($http.defaults.headers.common['Authorization']);
-    	userService.getUser($scope.id).then(function(user) {
-    		console.log(user);
-    	});
-    };
-
-    $scope.submit = function() {
-    	var user = {
-    		first_name: $scope.first_name,
-    		last_name: $scope.last_name,
-    		email: $scope.email,
-    		password: $scope.password,
-    		password_confirmation: $scope.password_confirm
-    	};
-
-    	userService.createUser(user).then(function() {
-    		$log.log('User was created!');
-    	});
-    };
+    
   });

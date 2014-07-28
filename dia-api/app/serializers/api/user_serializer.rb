@@ -1,3 +1,3 @@
 class Api::UserSerializer < ActiveModel::Serializer
-  attributes :id, :first_name, :last_name, :email, :created_at, :updated_at
+  attributes :id, :email, :remember_token, :auth_token, :created_at, :updated_at
 end

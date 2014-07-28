@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140715013452) do
+ActiveRecord::Schema.define(version: 20140728011401) do
+
+  create_table "api_diaries", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  add_index "api_diaries", ["user_id"], name: "index_api_diaries_on_user_id"
+
+  create_table "api_pages", force: true do |t|
+    t.string   "page_text"
+    t.integer  "diary_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "title"
+  end
+
+  add_index "api_pages", ["diary_id"], name: "index_api_pages_on_diary_id"
 
   create_table "api_users", force: true do |t|
     t.string   "email"

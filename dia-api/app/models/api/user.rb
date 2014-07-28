@@ -1,7 +1,7 @@
 class Api::User < ActiveRecord::Base
+	has_one :diary, dependent: :destroy
+	has_many :pages, :through => :diary
 	before_save { self.email = email.downcase }
-	validates :first_name, presence: true, length: { maximum: 50 }
-	validates :last_name, presence: true, length: { maximum: 50 }
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	validates :email, presence:   true,
 	            format:     { with: VALID_EMAIL_REGEX },
@@ -9,7 +9,7 @@ class Api::User < ActiveRecord::Base
 	has_secure_password
 	validates :password, length: { minimum: 6 }
 	before_create :create_remember_token, :set_auth_token
-
+	after_create :create_diary
 	def new_remember_token
 		SecureRandom.urlsafe_base64
 	end

@@ -13,9 +13,20 @@ class Api::UsersController < ApplicationController
 		@user = Api::User.create(user_params)
 		respond_to do |format|
 			if (@user.save)
-				format.json { render json: @user }
+				format.json { 
+					render :status => 200,
+							:json => {
+								success: true,
+								info: "User created and logged in",
+								remember_token: @user.remember_token,
+								user: @user
+						 	}
+				}
 			else
-				format.json { render json: @user.errors, status: :unprocessable_entity }
+				format.json { 
+					render 	json: @user.errors, 
+							status: :unprocessable_entity 
+				}
 			end
 		end
 	end
@@ -23,6 +34,6 @@ class Api::UsersController < ApplicationController
 	private 
 
 	def user_params
-		params.require(:user).permit(:first_name, :last_name, :password, :password_confirmation, :email)
+		params.require(:user).permit(:password, :password_confirmation, :email)
 	end
 end	

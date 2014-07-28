@@ -1,0 +1,7 @@
+.dropdown-custom {
+	cursor: pointer;
+}
+
+.dropdown:hover .dropdown-menu {
+	display:block;
+}
